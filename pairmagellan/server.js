@@ -11,6 +11,7 @@ require('colors');
 //   res.sendfile('magellan.html')
 // });
 
+app.get('/', (req, res) => res.sendFile(__dirname + '/index.html') );
 app.get('/0', (req, res) => res.sendFile(__dirname + '/index.html') ); // oneliner style
 app.get('/1', (req, res) => res.sendFile(__dirname + '/seville.html') );
 app.get('/2', (req, res) => res.sendFile(__dirname + '/canaryislands.html') );
@@ -50,7 +51,7 @@ var checkLocation = (req, res, next) => {
 }
 app.get('/*/next/', checkLocation);
 
-
+app.use(express.static("."));
 /////////////////////////////////////////////////////bonus #1
 
 app.use(function(req, res){
